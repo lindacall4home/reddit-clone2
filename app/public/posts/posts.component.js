@@ -2,12 +2,12 @@
     'use strict';
 
   angular.module("app")
-    .component('post', {
+    .component('posts', {
       controller: Controller,
-      templateUrl: "./posts/post.template.html"
+      templateUrl: "./posts/posts.template.html"
   });
 
-  Controller.$inject = ['$http', 'postService'];
+  Controller.$inject = ['$http', 'postsService'];
 
   function Controller($http, postService){
     const vm = this;
