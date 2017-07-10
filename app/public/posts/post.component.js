@@ -7,24 +7,19 @@
       templateUrl: "./posts/post.template.html"
   });
 
-  Controller.$inject = ['$http'];
+  Controller.$inject = ['$http', 'postService'];
 
-  function Controller($http){
+  function Controller($http, postService){
     const vm = this;
     vm.posts = [];
 
     vm.$onInit = onInit;
 
     function onInit(){
-
-      $http.get('/api/posts').then(function (response) {
-        vm.posts = response.data;
-        for(let i = 0; i < vm.posts.length; i++){
-          vm.getPostComments(vm.posts[i]);
-        }
-
-      });
-
+      postService.getAllPosts()
+        .then(function(posts){
+          vm.posts = posts;
+        });
 
       vm.sortBy = '-votes';
       vm.sortText = 'Votes';
@@ -91,4 +86,4 @@
 
   }
 
-}());//end of file
+})();//end of file
