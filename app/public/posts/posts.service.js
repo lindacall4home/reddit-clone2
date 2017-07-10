@@ -12,12 +12,8 @@
 
     this.getAllPosts = function() {
       return $http.get('/api/posts').then(postsResponse => {
+        console.log(postsResponse.data);
         return postsResponse.data;
-        //return vm.posts;
-        // return $http.get(person.commentUrl).then(commentsResponse => {
-        //   person.comments = commentsResponse.data
-        //   return person
-        // })
       });
     };
   }

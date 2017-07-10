@@ -11,7 +11,6 @@
 
     $stateProvider
     .state({ name: 'posts', url: '/', component: 'posts' })
-    .state({name: 'posts.post', url: '/:id', component: 'post'})
     .state({ name: 'editPost', url: '/posts/:id/edit', component: 'editPost' });
 
   }
